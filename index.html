@@ -3,9 +3,32 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>Trio Coders | تجربة برمجية متكاملة</title>
+    <meta name="description" content="Trio Coders - منصتكم الرائدة لتعلم البرمجة، تصفح المشاريع المبتكرة، ودعم المحتوى التقني العربي." />
+    <meta name="keywords" content="Trio Coders, برمجة, تطوير ويب, مشاريع برمجية, تعلم البرمجة بالعربي" />
+    <meta name="author" content="Trio Coders" />
+    <meta name="robots" content="index, follow" />
+
+    <meta property="og:title" content="Trio Coders | Build the Future" />
+    <meta property="og:description" content="حيث تلتقي الأكواد بالإبداع لتشكيل المستقبل الرقمي ⚡" />
+    <meta property="og:image" content="Images/11zon_cropped.png" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
     <link rel="icon" type="image/png" href="Images/11zon_cropped.png" />
-    <title>Trio Coders | Experience</title>
+    <link rel="apple-touch-icon" href="Images/11zon_cropped.png" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
     <style>
         :root {
             --primary: #00d2ff;
@@ -31,7 +54,6 @@
             overflow-x: hidden;
         }
 
-        /* تأثير الخلفية المتطورة */
         .bg-visuals {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1; overflow: hidden;
@@ -50,17 +72,11 @@
             100% { transform: translate(20%, 20%); }
         }
 
-        /* الحاوية الرئيسية */
-        .container {
-            width: 100%; max-width: 420px;
-            perspective: 1000px; /* للتحكم في تأثير الـ 3D */
-        }
+        .container { width: 100%; max-width: 420px; perspective: 1000px; }
 
         .header { text-align: center; margin-bottom: 40px; }
 
-        .logo-container {
-            position: relative; width: 140px; height: 140px; margin: 0 auto 25px;
-        }
+        .logo-container { position: relative; width: 140px; height: 140px; margin: 0 auto 25px; }
 
         .logo {
             width: 100%; height: 100%; border-radius: 50%;
@@ -79,10 +95,7 @@
 
         .bio { color: #94a3b8; font-size: 15px; margin-top: 10px; font-weight: 300; }
 
-        /* أيقونات التواصل */
-        .social-bar {
-            display: flex; justify-content: center; gap: 12px; margin: 30px 0;
-        }
+        .social-bar { display: flex; justify-content: center; gap: 12px; margin: 30px 0; }
 
         .s-link {
             width: 50px; height: 50px; border-radius: 16px;
@@ -99,7 +112,6 @@
             box-shadow: 0 10px 25px rgba(0, 210, 255, 0.2);
         }
 
-        /* كروت الروابط */
         .links-stack { display: flex; flex-direction: column; gap: 16px; }
 
         .card {
@@ -118,7 +130,6 @@
             background: rgba(255, 255, 255, 0.05);
         }
 
-        /* زرار البورتفوليو المميز (Next Level) */
         .portfolio-card {
             border: 1px solid var(--primary);
             background: linear-gradient(135deg, rgba(0, 210, 255, 0.1), transparent);
@@ -132,20 +143,14 @@
             animation: sweep 4s infinite;
         }
 
-        @keyframes sweep {
-            0% { left: -100%; }
-            50% { left: 100%; }
-            100% { left: 100%; }
-        }
+        @keyframes sweep { 0% { left: -100%; } 50% { left: 100%; } 100% { left: 100%; } }
 
         .card i:first-child { font-size: 24px; width: 45px; transition: 0.3s; }
         .card:hover i:first-child { transform: scale(1.2) rotate(-5deg); color: var(--primary); }
-        
         .card span { flex: 1; text-align: right; font-weight: 500; font-size: 16px; }
 
         footer { margin-top: 60px; font-size: 13px; color: #475569; letter-spacing: 1px; }
 
-        /* انيميشن الظهور بالتتابع */
         .card { opacity: 0; animation: reveal 0.8s cubic-bezier(0.2, 1, 0.2, 1) forwards; }
         .card:nth-child(1) { animation-delay: 0.1s; }
         .card:nth-child(2) { animation-delay: 0.2s; }
@@ -178,7 +183,7 @@
             <a href="https://instagram.com/triocoders.arabic" class="s-link"><i class="fab fa-instagram"></i></a>
             <a href="https://www.facebook.com/share/19yFZyRPkK/" class="s-link"><i class="fab fa-facebook"></i></a>
             <a href="https://tiktok.com/@triocoders.arabic" class="s-link"><i class="fab fa-tiktok"></i></a>
-            <a href="https://wa.me/201509905508" class="s-link"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://wa.me/201509905508?text=أهلا Trio Coders" class="s-link"><i class="fab fa-whatsapp"></i></a>
             <a href="mailto:triocoders1@gmail.com" class="s-link"><i class="fas fa-envelope"></i></a>
         </nav>
 
@@ -208,15 +213,16 @@
             </a>
         </div>
 
-        <footer>
-            <p>&copy; 2025-<span id="year"></span> <span style="color: var(--primary)">Trio Coders</span> | Build the Future</p>
-        </footer>
+<footer style="display: flex; justify-content: center; width: 100%; direction: ltr;">
+    <p style="direction: rtl;">
+        &copy; 2025-<span id="year"></span> 
+        <span style="color: var(--primary)">Trio Coders</span> | Build the Future
+    </p>
+</footer>
     </div>
 
     <script>
         document.getElementById("year").textContent = new Date().getFullYear();
-
-        // تأثير بسيط لحركة الماوس على الموقع بالكامل
         document.addEventListener('mousemove', (e) => {
             const blob = document.querySelector('.blob');
             const x = e.clientX;
