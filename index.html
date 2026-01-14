@@ -73,10 +73,22 @@
         }
 
         .container { width: 100%; max-width: 420px; perspective: 1000px; }
-
         .header { text-align: center; margin-bottom: 40px; }
 
-        .logo-container { position: relative; width: 140px; height: 140px; margin: 0 auto 25px; }
+        /* تعديل ظهور اللوجو لمنع النط المفاجئ */
+        .logo-container { 
+            position: relative; 
+            width: 140px; 
+            height: 140px; 
+            margin: 0 auto 25px; 
+            opacity: 0; /* يبدأ مخفي */
+            animation: logoFadeIn 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards; /* ظهور ناعم */
+        }
+
+        @keyframes logoFadeIn {
+            from { opacity: 0; transform: scale(0.8) translateY(10px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
 
         .logo {
             width: 100%; height: 100%; border-radius: 50%;
@@ -84,7 +96,6 @@
             background: var(--glass); backdrop-filter: blur(15px);
             transition: 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
-
         .logo-container:hover .logo { transform: scale(1.1) rotate(10deg); border-color: var(--primary); }
 
         h1 {
@@ -94,7 +105,6 @@
         }
 
         .bio { color: #94a3b8; font-size: 15px; margin-top: 10px; font-weight: 300; }
-
         .social-bar { display: flex; justify-content: center; gap: 12px; margin: 30px 0; }
 
         .s-link {
@@ -104,7 +114,6 @@
             color: #fff; text-decoration: none; font-size: 22px;
             transition: 0.4s; backdrop-filter: blur(10px);
         }
-
         .s-link:hover {
             transform: translateY(-8px) scale(1.1);
             background: rgba(0, 210, 255, 0.1);
@@ -124,19 +133,20 @@
             overflow: hidden;
         }
 
-        .card:hover {
+        .card:hover:not(.disabled) {
             transform: translateY(-4px) scale(1.02);
             border-color: rgba(255, 255, 255, 0.3);
             background: rgba(255, 255, 255, 0.05);
         }
 
-        .portfolio-card {
+        /* بايبال هو اللي بيلمع الآن */
+        .paypal-card {
             border: 1px solid var(--primary);
             background: linear-gradient(135deg, rgba(0, 210, 255, 0.1), transparent);
             box-shadow: 0 0 30px rgba(0, 210, 255, 0.1);
         }
 
-        .portfolio-card::before {
+        .paypal-card::before {
             content: ''; position: absolute; top: 0; left: -100%;
             width: 100%; height: 100%;
             background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
@@ -146,7 +156,7 @@
         @keyframes sweep { 0% { left: -100%; } 50% { left: 100%; } 100% { left: 100%; } }
 
         .card i:first-child { font-size: 24px; width: 45px; transition: 0.3s; }
-        .card:hover i:first-child { transform: scale(1.2) rotate(-5deg); color: var(--primary); }
+        .card:hover:not(.disabled) i:first-child { transform: scale(1.2) rotate(-5deg); color: var(--primary); }
         .card span { flex: 1; text-align: right; font-weight: 500; font-size: 16px; }
 
         footer { margin-top: 60px; font-size: 13px; color: #475569; letter-spacing: 1px; }
@@ -162,7 +172,8 @@
             to { opacity: 1; transform: translateY(0) scale(1); }
         }
 
-        .disabled { opacity: 0.3; pointer-events: none; filter: blur(1px); }
+        /* ستايل الـ Blur للمشاريع المقفولة */
+        .disabled { opacity: 0.3; pointer-events: none; filter: blur(1.5px); }
     </style>
 </head>
 <body>
@@ -194,16 +205,16 @@
                 <i class="fas fa-chevron-left" style="font-size: 12px; opacity: 0.3;"></i>
             </a>
 
-            <a href="#" class="card portfolio-card">
-                <i class="fas fa-code-branch" style="color: var(--primary);"></i>
-                <span>تصفح مشاريعنا البرمجية</span>
-                <i class="fas fa-star" style="color: var(--primary); font-size: 12px;"></i>
-            </a>
-
-            <a href="https://paypal.me/TRIOCODERS" class="card">
+            <a href="https://paypal.me/TRIOCODERS" class="card paypal-card">
                 <i class="fab fa-paypal" style="color: #0070ba;"></i>
                 <span>ادعم استمرار رحلتنا</span>
                 <i class="fas fa-heart" style="color: #ff4d4d; font-size: 12px;"></i>
+            </a>
+
+            <a href="#" class="card disabled">
+                <i class="fas fa-code-branch" style="color: var(--primary);"></i>
+                <span>تصفح مشاريعنا البرمجية</span>
+                <i class="fas fa-lock" style="font-size: 12px;"></i>
             </a>
 
             <a href="#" class="card disabled">
@@ -213,12 +224,12 @@
             </a>
         </div>
 
-<footer style="display: flex; justify-content: center; width: 100%; direction: ltr;">
-    <p style="direction: rtl;">
-        &copy; 2025-<span id="year"></span> 
-        <span style="color: var(--primary)">Trio Coders</span> | Build the Future
-    </p>
-</footer>
+        <footer style="display: flex; justify-content: center; width: 100%; direction: ltr;">
+            <p style="direction: rtl;">
+                &copy; 2025-<span id="year"></span> 
+                <span style="color: var(--primary)">Trio Coders</span> | Build the Future
+            </p>
+        </footer>
     </div>
 
     <script>
